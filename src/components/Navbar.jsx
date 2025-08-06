@@ -1,15 +1,15 @@
-const Navbar = () => {
+const Navbar = ({ navLinks }) => {
   return (
     <nav className="bg-white shadow-md p-4 flex justify-center space-x-8">
-      <a href="#" className="text-blue-600 font-medium hover:underline">
-        Link 1
-      </a>
-      <a href="#" className="text-blue-600 font-medium hover:underline">
-        Link 2
-      </a>
-      <a href="#" className="text-blue-600 font-medium hover:underline">
-        Link 3
-      </a>
+      {navLinks.map((link, index) => (
+        <a
+          key={index}
+          href={link.url}
+          className="text-blue-600 font-medium hover:underline"
+        >
+          {link.label}
+        </a>
+      ))}
     </nav>
   );
 };
