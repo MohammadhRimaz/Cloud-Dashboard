@@ -1,6 +1,9 @@
+import axios from "axios";
+
 const Dashboard = ({
   headerTitle,
   setHeaderTitle,
+  headerImage,
   setHeaderImage,
   navLinks,
   setNavLinks,
@@ -39,6 +42,38 @@ const Dashboard = ({
     } catch (err) {
       console.error("Image upload failed:", err);
       alert("Failed to upload image. Please try again.");
+    }
+  };
+
+  const handleSave = async () => {
+    try {
+      const data = {
+        header: {
+          title: headerTitle,
+          image: headerImage,
+        },
+        navbar: [
+          ...navLinks.map((link) => ({
+            label: link.label,
+            url: link.url,
+          })),
+        ],
+        footer: {
+          email: footerInfo.email,
+          phone: footerInfo.phone,
+          address: footerInfo.address,
+        },
+      };
+
+      const res = await axios.post(
+        "http://localhost:5000/api/components",
+        data
+      );
+      console.log("Data saved successfully:", res.data);
+      alert("Data saved successfully!");
+    } catch (error) {
+      console.error("Error saving data: ", error);
+      alert("Failed to save data. Please try again.");
     }
   };
 
@@ -110,6 +145,13 @@ const Dashboard = ({
           placeholder="Address"
         />
       </section>
+
+      <button
+        onClick={handleSave}
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-6"
+      >
+        Save
+      </button>
     </div>
   );
 };

@@ -6,14 +6,14 @@ import { useState } from "react";
 
 function App() {
   // State variables for header title and image
-  const [headerTitle, setHeaderTitle] = useState("Header Title");
+  const [headerTitle, setHeaderTitle] = useState("");
   const [headerImage, setHeaderImage] = useState("");
 
   // State variable for navigation links
   const [navLinks, setNavLinks] = useState([
-    { name: "Link 1", href: "#" },
-    { name: "Link 2", href: "#" },
-    { name: "Link 3", href: "#" },
+    { label: "", url: "" },
+    { label: "", url: "" },
+    { label: "", url: "" },
   ]);
 
   // State variable for footer text
@@ -32,6 +32,7 @@ function App() {
         <Dashboard
           headerTitle={headerTitle}
           setHeaderTitle={setHeaderTitle}
+          headerImage={headerImage}
           setHeaderImage={setHeaderImage}
           navLinks={navLinks}
           setNavLinks={setNavLinks}
