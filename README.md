@@ -1,12 +1,93 @@
-# React + Vite
+# Dashboard CMS 🧩
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple CMS-style dashboard to **create**, **save**, and **fetch** customizable components like Header, Navbar, and Footer. Built with love using the MERN stack.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🖼️ Screenshot
 
-## Expanding the ESLint configuration
+![Dashboard Screenshot](./screenshot.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Features
+
+- Add and customize:
+  - Header title and image
+  - Navigation links
+  - Footer contact info
+- Save components to MongoDB
+- Fetch and load the latest saved data
+- Built with modular and clean code architecture
+- Responsive frontend using Tailwind CSS
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+
+- React + Vite
+- Axios
+- Tailwind CSS
+
+**Backend:**
+
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+
+---
+
+## 📦 Clone and Run Locally
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/MohammadhRimaz/Cloud-Dashboard.git
+```
+
+### 2. Set up the backend
+
+```bash
+cd backend
+npm install
+```
+
+- Create a .env file inside /backend:
+
+```bash
+MONGO_URI=your_mongo_connection_string
+```
+
+- Run the backend server:
+
+```bash
+node server.js
+```
+
+- The backend is running on http://localhost:5000/api/components
+
+### 3. Set up the frontend
+
+```bash
+cd ../
+npm install
+npm run dev
+```
+
+- The dashboard is running on http://localhost:5173/
+
+## 📁 Folder Structure
+
+```bash
+root
+├── backend
+│   ├── models
+│   ├── routes
+│   ├── server.js
+│   └── .env
+|──  src
+│── vite.config.js
+└── README.md
+```
