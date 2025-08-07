@@ -57,7 +57,7 @@ npm install
 - Create a .env file inside /backend:
 
 ```bash
-MONGO_URI=your_mongo_connection_string
+MONGO_URI=mongodb+srv://<your_username>:<your_password>@<cluster_name>.xxxxxx.mongodb.net/?retryWrites=true&w=majority&appName=<cluster_name>
 ```
 
 - Run the backend server:
