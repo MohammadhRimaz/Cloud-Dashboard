@@ -3,12 +3,10 @@ const router = express.Router();
 const ComponentData = require("../models/ComponentData");
 
 // GET latest component data
-router.get("/latest", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const data = await ComponentData.findOne().sort({ createdAt: -1 });
-    if (!data) {
-      return res.status(404).json({ message: "No component data found" });
-    }
+
     res.json(data);
   } catch (error) {
     res.status(500).json({ error: "Server error" });

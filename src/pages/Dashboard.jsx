@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useEffect } from "react";
 
 const Dashboard = ({
   headerTitle,
@@ -10,6 +11,37 @@ const Dashboard = ({
   footerInfo,
   setFooterInfo,
 }) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/components");
+        const data = res.data;
+        console.log("Fetched data:", data);
+
+        if (data.header) {
+          setHeaderTitle(data.header.title || "");
+          setHeaderImage(data.header.image || "");
+        }
+        if (data.navbar) {
+          setNavLinks(
+            data.navbar.map((link) => ({
+              label: link.label || "",
+              url: link.url || "",
+            }))
+          );
+        }
+        if (data.footer) {
+          setFooterInfo(data.footer || "");
+        }
+        console.log("Data fetched successfully:", data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const handleLinkChange = (index, field, value) => {
     const updated = [...navLinks];
     updated[index][field] = value;
