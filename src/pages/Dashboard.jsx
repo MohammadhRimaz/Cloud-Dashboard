@@ -17,6 +17,31 @@ const Dashboard = ({
     setFooterInfo({ ...footerInfo, [field]: value });
   };
 
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "unsigned_preset");
+    formData.append("cloud_name", "ddwabvz91");
+
+    try {
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/ddwabvz91/image/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const data = await res.json();
+      setHeaderImage(data.secure_url);
+    } catch (err) {
+      console.error("Image upload failed:", err);
+      alert("Failed to upload image. Please try again.");
+    }
+  };
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-md space-y-6">
       {/* Header Controls */}
@@ -26,14 +51,14 @@ const Dashboard = ({
           type="text"
           value={headerTitle}
           onChange={(e) => setHeaderTitle(e.target.value)}
-          className="border p-2 w-full"
+          className="border p-2 w-full mb-2"
           placeholder="Header Title"
         />
         <input
-          type="text"
-          onChange={(e) => setHeaderImage(e.target.value)}
-          className="border p-2 w-full mt-2"
-          placeholder="Image URL"
+          type="file"
+          accept="image/*"
+          onChange={handleImageUpload}
+          className="border p-2 w-full mb-2"
         />
       </section>
 

@@ -18,9 +18,9 @@ function App() {
 
   // State variable for footer text
   const [footerInfo, setFooterInfo] = useState({
-    email: "example@test.com",
-    phone: "+1234567890",
-    address: "123 Main St, City, Country",
+    email: "",
+    phone: "",
+    address: "",
   });
 
   return (
