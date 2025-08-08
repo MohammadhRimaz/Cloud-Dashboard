@@ -110,78 +110,94 @@ const Dashboard = ({
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md space-y-6">
+    <div className="dashboard">
       {/* Header Controls */}
       <section>
-        <h3 className="text-lg font-bold mb-2">Header</h3>
-        <input
-          type="text"
-          value={headerTitle}
-          onChange={(e) => setHeaderTitle(e.target.value)}
-          className="border p-2 w-full mb-2"
-          placeholder="Header Title"
-        />
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageUpload}
-          className="border p-2 w-full mb-2"
-        />
+        <h3>Header</h3>
+        <div className="form-group">
+          <input
+            type="text"
+            id="headerTitle"
+            value={headerTitle}
+            onChange={(e) => setHeaderTitle(e.target.value)}
+            required
+          />
+          <label htmlFor="headerTitle">Header Title</label>
+        </div>
+        <div className="form-group">
+          <input type="file" accept="image/*" onChange={handleImageUpload} />
+          <label>Header Image</label>
+        </div>
       </section>
 
       {/* Navbar Controls */}
       <section>
-        <h3 className="text-lg font-bold mb-2">Navbar</h3>
+        <h3>Navbar</h3>
         {navLinks.map((link, index) => (
-          <div key={index} className="mb-3 space-y-1">
-            <input
-              type="text"
-              value={link.label}
-              onChange={(e) => handleLinkChange(index, "label", e.target.value)}
-              className="border p-2 w-full"
-              placeholder={`Link ${index + 1} Label`}
-            />
-            <input
-              type="text"
-              value={link.url}
-              onChange={(e) => handleLinkChange(index, "url", e.target.value)}
-              className="border p-2 w-full"
-              placeholder={`Link ${index + 1} URL`}
-            />
+          <div key={index} className="nav-link-group">
+            <div className="form-group">
+              <input
+                type="text"
+                id={`label-${index}`}
+                value={link.label}
+                onChange={(e) =>
+                  handleLinkChange(index, "label", e.target.value)
+                }
+                required
+              />
+              <label htmlFor={`label-${index}`}>Link {index + 1}</label>
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                id={`url-${index}`}
+                value={link.url}
+                onChange={(e) => handleLinkChange(index, "url", e.target.value)}
+                required
+              />
+              <label htmlFor={`url-${index}`}>URL {index + 1}</label>
+            </div>
           </div>
         ))}
       </section>
 
       {/* Footer Controls */}
       <section>
-        <h3 className="text-lg font-bold mb-2">Footer</h3>
-        <input
-          type="email"
-          value={footerInfo.email}
-          onChange={(e) => handleFooterChange("email", e.target.value)}
-          className="border p-2 w-full mb-2"
-          placeholder="Email"
-        />
-        <input
-          type="text"
-          value={footerInfo.phone}
-          onChange={(e) => handleFooterChange("phone", e.target.value)}
-          className="border p-2 w-full mb-2"
-          placeholder="Phone Number"
-        />
-        <input
-          type="text"
-          value={footerInfo.address}
-          onChange={(e) => handleFooterChange("address", e.target.value)}
-          className="border p-2 w-full mb-2"
-          placeholder="Address"
-        />
+        <h3>Footer</h3>
+        <div className="form-group">
+          <input
+            type="email"
+            id="footerEmail"
+            value={footerInfo.email}
+            onChange={(e) => handleFooterChange("email", e.target.value)}
+            required
+          />
+          <label htmlFor="footerEmail">Email</label>
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            id="footerPhone"
+            value={footerInfo.phone}
+            onChange={(e) => handleFooterChange("phone", e.target.value)}
+            placeholder="Phone Number"
+            required
+          />
+          <label htmlFor="footerPhone">Phone</label>
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            id="footerAddress"
+            value={footerInfo.address}
+            onChange={(e) => handleFooterChange("address", e.target.value)}
+            required
+          />
+          <label htmlFor="footerAddress">Address</label>
+        </div>
       </section>
 
-      <button
-        onClick={handleSave}
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-6"
-      >
+      <button type="submit" onClick={handleSave} className="save-btn">
         Save
       </button>
     </div>
