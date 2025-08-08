@@ -10,6 +10,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  /* #ffffff; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,56 +18,88 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
+.navbar {
+  position: sticky;
+  top: 10px;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  margin: 0 auto;
+  max-width: 900px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+.nav-link {
+  color: black;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.nav-link:hover {
+  background: linear-gradient(to top, #f2a6b1, white);
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    flex-direction: row;
+    margin: 1rem;
+    gap: 0.5rem;
   }
-  a:hover {
-    color: #747bff;
+}
+
+.header {
+  background-color: #e0f2fe;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.header-image {
+  border-radius: 12px;
+  max-height: 400px;
+  width: 100%;
+  max-width: 800px;
+  object-fit: cover;
+  border: 2px dashed #d1d5db;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.header-placeholder {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+@media (max-width: 768px) {
+  .header {
+    align-items: center;
+    text-align: center;
   }
-  button {
-    background-color: #f9f9f9;
+  .header-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .header-image {
+    max-width: 100%;
+    padding: 0.5rem;
+    max-height: 200px;
   }
 }

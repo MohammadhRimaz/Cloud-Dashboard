@@ -1,12 +1,8 @@
 const Navbar = ({ navLinks }) => {
   return (
-    <nav className="bg-white shadow-md p-4 flex justify-center space-x-8">
+    <nav className="navbar">
       {navLinks.map((link, index) => (
-        <a
-          key={index}
-          href={link.url}
-          className="text-blue-600 font-medium hover:underline"
-        >
+        <a key={index} href={link.url} className="nav-link">
           {link.label}
         </a>
       ))}
