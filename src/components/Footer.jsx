@@ -1,12 +1,13 @@
 const Footer = ({ footerInfo }) => {
   const { email, phone, address } = footerInfo;
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-gray-800 text-white p-6 mt-4">
-      <div className="text-center">
-        <p>Email: {email}</p>
-        <p>Phone: {phone}</p>
-        <p>Address: {address}</p>
-      </div>
+    <footer className="footer">
+      <p>Email: {email}</p>
+      <p>Phone: {phone}</p>
+      <p>Address: {address}</p>
+      <small>© {year}. All rights reserved.</small>
     </footer>
   );
 };
