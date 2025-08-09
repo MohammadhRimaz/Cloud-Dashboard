@@ -13,7 +13,7 @@ A simple CMS-style dashboard to **create**, **save**, and **fetch** customizable
 ## 🚀 Features
 
 - Add and customize:
-  - Header title and image
+  - Header title and image (Cloudinary image URL)
   - Navigation links
   - Footer contact info
 - Save components to MongoDB
@@ -30,6 +30,7 @@ A simple CMS-style dashboard to **create**, **save**, and **fetch** customizable
 - React + Vite
 - Axios
 - Tailwind CSS
+- Cloudinary for image upload
 
 **Backend:**
 
